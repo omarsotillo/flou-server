@@ -1,9 +1,8 @@
 from fastapi import FastAPI
-from fastapi_app import subapps
+from fastapi_app import modules
 
-app = FastAPI(title="FastAPI App")
+app = FastAPI(title="Flou")
 
-
-app.mount("/client", subapps.client_app)
-app.mount("/api", subapps.web_app)
-app.mount("/internal", subapps.internal_app)
+# app.mount("/client", modules.client_app)
+app.mount("/api", modules.web_app)
+# app.mount("/internal", modules.internal_app)

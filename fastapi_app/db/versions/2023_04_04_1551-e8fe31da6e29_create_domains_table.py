@@ -1,7 +1,7 @@
 """create domains table
 
 Revision ID: e8fe31da6e29
-Revises: 184d20e99b62
+Revises:
 Create Date: 2023-04-02 00:57:21.624935
 
 """
@@ -12,7 +12,7 @@ from uuid import uuid4
 
 # revision identifiers, used by Alembic.
 revision = "e8fe31da6e29"
-down_revision = "184d20e99b62"
+down_revision = None
 branch_labels = None
 depends_on = None
 
@@ -22,13 +22,6 @@ def upgrade() -> None:
         "domains",
         sa.Column("id", postgresql.UUID(as_uuid=True), primary_key=True, default=uuid4),
         sa.Column("name", sa.String, nullable=False),
-        sa.Column(
-            "account_id",
-            postgresql.UUID(as_uuid=True),
-            sa.ForeignKey("accounts.id", ondelete="CASCADE"),
-            nullable=False,
-            index=True,
-        ),
         sa.Column(
             "created_at", sa.DateTime, server_default=sa.func.now(), nullable=False
         ),

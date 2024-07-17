@@ -28,4 +28,4 @@ class SQLModelBase(SQLModel):
 
 class PydanticModelBase(BaseModel):
     class Config:
-        orm_mode = True
+        from_attributes = True

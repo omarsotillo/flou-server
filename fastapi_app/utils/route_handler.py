@@ -6,7 +6,6 @@ from .logger import AppLogger
 
 logger = AppLogger.__call__().get_logger()
 
-
 # log request body on validation error
 class ValidationErrorLoggingRoute(APIRoute):
     def get_route_handler(self) -> Callable[[Request], Coroutine[Any, Any, Response]]:
