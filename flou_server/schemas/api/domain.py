@@ -1,4 +1,4 @@
-from fastapi_app import models
+from flou_server import models
 
 
 class DomainCreate(models.PydanticModelBase):

@@ -1,7 +1,7 @@
 from collections.abc import AsyncGenerator
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
-from fastapi_app import config, utils
+from flou_server import config, utils
 
 logger = utils.AppLogger.__call__().get_logger()
 

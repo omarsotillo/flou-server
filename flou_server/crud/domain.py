@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from pydantic import BaseModel
 from .base import CRUDBase
-from fastapi_app import models
+from flou_server import models
 
 
 class Domain(CRUDBase[models.Domain, models.DomainCreate, BaseModel]):

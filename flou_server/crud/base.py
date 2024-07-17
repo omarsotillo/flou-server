@@ -3,7 +3,7 @@ from sqlmodel import select, delete
 from pydantic import UUID4
 from pydantic import BaseModel
 from sqlalchemy.ext.asyncio import AsyncSession
-from fastapi_app import models
+from flou_server import models
 
 ModelType = TypeVar("ModelType", bound=models.SQLModelBase)
 CreateSchemaType = TypeVar("CreateSchemaType", bound=BaseModel)

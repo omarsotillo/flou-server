@@ -1,6 +1,6 @@
 # from celery import Celery  # type: ignore
 # from kombu.utils.url import safequote  # type: ignore
-# from fastapi_app import config
+# from flou_server import config
 
 # settings = config.get_settings()
 
@@ -10,11 +10,11 @@
 # )
 
 # celery_app = Celery(
-#     "fastapi_app_workers",
+#     "flou_server_workers",
 #     broker_url=broker_url,
 #     result_backend=None,
 #     task_default_queue="[queue-name].fifo",
-#     include=["fastapi_app.background_tasks"],
+#     include=["flou_server.background_tasks"],
 #     broker_transport_options={
 #         "predefined_queues": {
 #             "[queue-name].fifo": {

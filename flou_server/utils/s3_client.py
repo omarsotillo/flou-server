@@ -1,5 +1,5 @@
 # import boto3
-# from fastapi_app import config
+# from flou_server import config
 
 # settings = config.get_settings()
 

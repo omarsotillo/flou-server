@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "fastapi_app"
+name = "flou_server"
 version = "0.1.0"
 description = "Example app using FastAPI, asyncio, SQLModel, Celery, Alembic and Supertokens"
 authors = ["Petr Gazarov <petrgazarov@gmail.com>"]

@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from fastapi_app import modules
+from flou_server import modules
 
 app = FastAPI(title="Flou")
 

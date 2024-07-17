@@ -2,13 +2,13 @@ install:
 		poetry install
 
 server:
-		uvicorn fastapi_app.main:app --reload
+		uvicorn flou_server.main:app --reload
 
 worker:
-		celery -A fastapi_app.celery worker --loglevel=info --concurrency=5
+		celery -A flou_server.celery worker --loglevel=info --concurrency=5
 
 lint:
-		mypy fastapi_app
+		mypy flou_server
 
 migration_generate:
 		alembic revision -m "$(name)"

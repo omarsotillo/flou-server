@@ -1,5 +1,5 @@
 from typing import Optional
-from fastapi_app import crud, models
+from flou_server import crud, models
 from .base import BaseService
 from uuid import UUID
 

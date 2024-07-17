@@ -1,7 +1,7 @@
 from logging.config import fileConfig
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
-from fastapi_app.models.base import SQLModelBase
+from flou_server.models.base import SQLModelBase
 from alembic import context
 
 # this is the Alembic Config object, which provides

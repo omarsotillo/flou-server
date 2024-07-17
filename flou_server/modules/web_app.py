@@ -3,7 +3,7 @@ from fastapi import FastAPI, Depends, Request
 from fastapi.routing import APIRoute
 from fastapi.responses import JSONResponse
 from starlette.middleware.cors import CORSMiddleware
-from fastapi_app import  dependencies, utils, config
+from flou_server import  dependencies, utils, config
 
 logger = utils.AppLogger.__call__().get_logger()
 
