@@ -3,9 +3,6 @@ from functools import lru_cache
 
 
 class Settings(BaseSettings):
-    app_url: str
-    # aws_access_key_id: str
-    # aws_secret_access_key: str
     database_url: str
 
     class Config:
