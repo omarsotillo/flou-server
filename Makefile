@@ -1,5 +1,5 @@
 install:
-		poetry install
+		pdm install
 
 server:
 		uvicorn flou_server.main:app --reload

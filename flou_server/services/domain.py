@@ -1,4 +1,3 @@
-from typing import Optional
 from flou_server import crud, models
 from .base import BaseService
 from uuid import UUID

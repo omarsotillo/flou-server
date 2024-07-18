@@ -18,7 +18,7 @@ Additionally, the codebase showcases the following things:
 - Error handler middlewares
 - CORS middleware
 - Two separate types of authentication (static auth token for an internal endpoint + Supertokens for user authentication)
-- Dependencies management using Poetry
+- Dependencies management using pdm
 - And more.
 
 ## Project structure

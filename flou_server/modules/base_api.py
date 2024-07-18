@@ -14,7 +14,7 @@ def custom_generate_unique_id(route: APIRoute) -> str:
 
 settings = config.get_settings()
 
-web_app = FastAPI(
+base_api = FastAPI(
     dependencies=[
         # Depends(dependencies.verify_session),
         Depends(dependencies.get_db),
@@ -23,7 +23,7 @@ web_app = FastAPI(
     generate_unique_id_function=custom_generate_unique_id,
 )
 
-web_app.add_middleware(
+base_api.add_middleware(
     CORSMiddleware,
     allow_origins=[settings.app_url],
     allow_credentials=True,
@@ -31,10 +31,10 @@ web_app.add_middleware(
     # allow_headers=["Content-Type"] + get_all_cors_headers(),
 )
 
-web_app.router.route_class = utils.ValidationErrorLoggingRoute
+base_api.router.route_class = utils.ValidationErrorLoggingRoute
 
 
-@web_app.exception_handler(Exception)
+@base_api.exception_handler(Exception)
 async def unhandled_exception_handler(request: Request, exc: Exception) -> JSONResponse:
     logger.error(exc)
     return JSONResponse(
@@ -43,12 +43,12 @@ async def unhandled_exception_handler(request: Request, exc: Exception) -> JSONR
     )
 
 
-@web_app.get("/", tags=["root"])
-async def root() -> str:
-    return "HOLA"
+@base_api.get("/health", tags=["health"])
+async def root() -> Dict[str, str]:
+    return {"status": "ok"}
 
 
-# @web_app.delete("/events/{name}", tags=["events"])
+# @base_api.delete("/events/{name}", tags=["events"])
 # async def delete_events_by_name(name: str, request: Request) -> bool:
 #     current_user = request.state.current_user
 #     return await services.EventsService(
@@ -56,7 +56,7 @@ async def root() -> str:
 #     ).delete_events_by_name(name)
 
 
-# @web_app.delete("/events", tags=["events"])
+# @base_api.delete("/events", tags=["events"])
 # async def delete_all_events(request: Request) -> bool:
 #     current_user = request.state.current_user
 #     return await services.EventsService(
@@ -64,7 +64,7 @@ async def root() -> str:
 #     ).delete_all_events()
 
 
-# @web_app.post("/domains", tags=["domains"])
+# @base_api.post("/domains", tags=["domains"])
 # async def create_domain(
 #     payload: schemas_api.DomainCreate, request: Request
 # ) -> models.Domain:
@@ -78,7 +78,7 @@ async def root() -> str:
 #     ).create_domain(domain_data)
 
 
-# @web_app.delete("/domains/{id}", tags=["domains"])
+# @base_api.delete("/domains/{id}", tags=["domains"])
 # async def delete_domain(id: UUID, request: Request) -> models.Domain:
 #     current_user = request.state.current_user
 #     return await services.DomainsService(
@@ -102,7 +102,7 @@ async def root() -> str:
 #     return updated_user
 
 
-# @web_app.post("/accounts", tags=["accounts"])
+# @base_api.post("/accounts", tags=["accounts"])
 # async def create_account(request: Request) -> models.Account:
 #     current_user = request.state.current_user
 #     account = await services.AccountsService(
