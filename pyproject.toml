@@ -23,6 +23,7 @@ boto3 = "~1.34"
 celery = { extras = ["sqs"], version = "~5.2" }
 psycopg2 = "^2.9.9"
 ruff = "^0.5.2"
+pydantic-settings = "^2.3.4"
 
 [tool.poetry.dev-dependencies]
 mypy = "~1.2"
@@ -82,6 +83,7 @@ dependencies = [
     "boto3~=1.34",
     "celery[sqs]~=5.2",
     "psycopg2<3.0.0,>=2.9.9",
+    "pydantic-settings>=2.3.4",
 ]
 requires-python = "<4.0,>=3.12"
 readme = "README.md"
