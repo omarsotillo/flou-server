@@ -4,6 +4,7 @@ from functools import lru_cache
 
 class Settings(BaseSettings):
     database_url: str
+    port: str
 
     class Config:
         env_file = ".env"
